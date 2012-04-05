@@ -1,0 +1,2 @@
+g1(name) ::= <<ng $name$>>
+g1_ja(name) ::= <<ok $name$>>
