@@ -1,10 +1,9 @@
 package com.geishatokyo.scalast4
 
 import nextversion.STRawGroupDir
-import org.stringtemplate.v4.{STGroupString, STGroupDir, STGroupFile, STGroup => JSTGoup,ST => JST}
 import java.util.Locale
-import org.stringtemplate.v4.{AttributeRenderer => JAttributeRenderer}
 import scala.collection.JavaConversions._
+import org.stringtemplate.v4.{ STGroupString, STGroupDir, STGroupFile, STGroup => JSTGoup, ST => JST, AttributeRenderer => JAttributeRenderer}
 
 
 /**
@@ -36,7 +35,10 @@ case class STGroup( stGroup : JSTGoup) {
     val templateNames = localeFinder.getTemplateNameCandidates(name,locale)
 
     templateNames.collectFirst({
-      case ExistTemplate(t) => t
+      case ExistTemplate(t) => {
+        t.impl.hasFormalArgs = false
+        t
+      }
     }).map(t => ST(t).setLocale(locale)).getOrElse{
       throw new TemplateNotFoundException(name)
     }
@@ -76,11 +78,19 @@ case class STGroup( stGroup : JSTGoup) {
     parent.importTemplates(g.stGroup)
     new STGroup(parent).setLocaleFinder(this.localeFinder)
   }
+
+
+  def generateTemplateFromString( str : String) = {
+    val st = new JST(stGroup,str)
+    ST(st)
+  }
+
 }
 
 
 object STGroup{
 
+  def plain = new STGroup(changeDelimiter(new JSTGoup()))
 
   def fromFile(stgFilename:  String) = {
     STGroup(changeDelimiter(new STGroupFile(stgFilename)))

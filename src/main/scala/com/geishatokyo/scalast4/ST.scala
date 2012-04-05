@@ -46,6 +46,7 @@ object ST{
 
   var defaultDelimiter : Option[Char] = Some('$')
 
+
   def fromString( str : String) = {
     defaultDelimiter match{
       case Some(c) => ST(new JST(str,'$','$'))

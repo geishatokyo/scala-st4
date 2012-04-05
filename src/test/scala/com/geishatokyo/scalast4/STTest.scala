@@ -16,7 +16,7 @@ class STTest extends SpecificationWithJUnit {  def is =
 
   def fromString = {
     val st = ST.fromString("My name is <div>$myName$</div>! I like $hobby$")
-    st.add("myName" -> "Riki","hobby" -> "LittleBusters!").render must_== "My name is <div>Riki</div>! I like LittleBusters!"
+    st.add("myName" -> "Riki","hobby" -> "LittleBusters!","dummy" -> "dummyParam").render must_== "My name is <div>Riki</div>! I like LittleBusters!"
   }
 
 
