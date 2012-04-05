@@ -17,7 +17,7 @@ class STGroupFactoryTest extends SpecificationWithJUnit { def is =
 
   def createFromFiles = {
     val g = STGroup.fromFiles("stg/group1.stg","stg/group2.stg")
-    g("g1",Locale.JAPAN).add("name" -> "Taro").render must_== "ok Taro"
+    g("g1",Locale.JAPAN).add("name" -> "Taro","dummy" -> "dummy","gender" -> "male").render must_== "ok Taro male"
 
   }
 
