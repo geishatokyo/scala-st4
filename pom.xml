@@ -90,4 +90,15 @@
             </plugin>
         </plugins>
     </build>
+
+    <distributionManagement>
+        <repository>
+            <id>geishatokyo-releases</id>
+            <url>${deploy-release}</url>
+        </repository>
+        <snapshotRepository>
+            <id>geishatokyo-snapshots</id>
+            <url>${deploy-snapshot}</url>
+        </snapshotRepository>
+    </distributionManagement>
 </project>
