@@ -32,16 +32,21 @@ case class STGroup( stGroup : JSTGoup) {
   }
 
   def apply( name : String , locale : Locale) : ST = {
+    get(name,locale).getOrElse{
+      throw new TemplateNotFoundException(name)
+    }
+  }
+  def get(name : String ) : Option[ST] = {
+    get(name,Locale.getDefault)
+  }
+  def get(name : String , locale : Locale) : Option[ST] = {
     val templateNames = localeFinder.getTemplateNameCandidates(name,locale)
-
     templateNames.collectFirst({
       case ExistTemplate(t) => {
         t.impl.hasFormalArgs = false
         t
       }
-    }).map(t => ST(t).setLocale(locale)).getOrElse{
-      throw new TemplateNotFoundException(name)
-    }
+    }).map(t => ST(t).setLocale(locale))
   }
 
   def registerRenderer( attributeType : Class[_], jAttRenderer :  JAttributeRenderer) : STGroup = {
