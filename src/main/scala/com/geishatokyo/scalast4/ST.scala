@@ -35,6 +35,13 @@ case class ST( st : JST) {
     this
   }
 
+  def add( m : Map[String,Any]) = {
+    m.foreach(kv => {
+      st.add(kv._1,kv._2)
+    })
+    this
+  }
+
   def setLocale(locale : Locale) = {
     this.locale = Option(locale)
     this
