@@ -10,7 +10,30 @@
     <organization>
         <name>com.geishatokyo</name>
     </organization>
-    
+    <url>https://github.com/geishatokyo/scala-st4</url>
+    <licenses>
+       <license>
+            <name>BSD license</name>
+            <url>http://antlr.org/license.html</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    <scm>
+        <connection>scm:git:git://github.com/geishatokyo/scala-st4.git</connection>
+        <developerConnection>scm:git:git@github.com/geishatokyo/scala-st4.git</developerConnection>
+        <url>scm:git:git://github.com/geishatokyo/scala-st4.git</url>
+    </scm>
+    <issueManagement>
+        <system>github</system>
+        <url>https://github.com/geishatokyo/scala-st4/issues</url>
+    </issueManagement>
+    <developers>
+        <developer>
+            <id>takezoux2</id>
+            <name>Takeshita, Yoshiteru</name>
+            <email>takeshita@geishatokyo.com</email>
+        </developer>
+    </developers>
     <dependencies>
         <dependency>
             <groupId>org.scala-lang</groupId>
@@ -36,7 +59,6 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-    
     <build>
         <plugins>
             <plugin>
@@ -56,6 +78,13 @@
                                 <arg>${project.build.directory}/.scala_dependencies</arg>
                             </args>
                         </configuration>
+                    </execution>
+                    <execution>
+                        <id>attach-scaladocs</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>doc</goal>
+                        </goals>
                     </execution>
                 </executions>
             </plugin>
@@ -88,10 +117,27 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.5</version>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
-
     <distributionManagement>
+<!--
+        <repository>
+            <id>sonatype-nexus-staging</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+        </repository>
+        <snapshotRepository>
+            <id>sonatype-nexus-snapshots</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+    -->
         <repository>
             <id>geishatokyo-releases</id>
             <url>${deploy-release}</url>
