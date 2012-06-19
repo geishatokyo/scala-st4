@@ -2,7 +2,7 @@ name := "scala-st4"
 
 organization := "com.geishatokyo"
 
-version := "4.0.4"
+version := "4.0.5-SNAPSHOT"
 
 scalaVersion := "2.9.1"
 
