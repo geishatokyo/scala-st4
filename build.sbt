@@ -10,6 +10,8 @@ crossScalaVersions := Seq("2.9.0","2.9.0-1","2.9.1","2.9.1-1")
 
 resolvers += Resolver.mavenLocal
 
+publishMavenStyle := true
+
 publishTo := Some(Resolver.file("localMaven",Path.userHome / ".m2" / "repository"))
 
 libraryDependencies ++= Seq(

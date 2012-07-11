@@ -88,6 +88,13 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <configuration>
+                  <uniqueVersion>true</uniqueVersion>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
@@ -99,6 +106,7 @@
         <snapshotRepository>
             <id>geishatokyo-snapshots</id>
             <url>${deploy-snapshot}</url>
+            <uniqueVersion>true</uniqueVersion>
         </snapshotRepository>
     </distributionManagement>
 </project>

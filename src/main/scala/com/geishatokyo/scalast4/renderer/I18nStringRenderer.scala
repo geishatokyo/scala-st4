@@ -9,19 +9,15 @@ import java.util.{ResourceBundle, Locale}
  * Create: 12/04/05 16:56
  */
 
-class I18nStringRenderer(baseName : String) extends AttributeRenderer[String] {
+class I18nStringRenderer(baseName : String,encoding : String = "shift-jis") extends AttributeRenderer[String] {
 
-  def getResourceBundle(locale : Locale) = {
-    ResourceBundle.getBundle(baseName,locale)
-  }
+  val resources = new I18nResource(encoding)
 
   def formatString(o: String, format: Option[String], locale: Locale) = {
-    println("###" + o + ":" + locale)          // TODO delete
     format match{
       case Some("i18n") => {
-        val resourceBundle = getResourceBundle(locale)
-        if(resourceBundle.containsKey(o)) resourceBundle.getString(o)
-        else o
+        val props = resources.getProps(baseName,locale)
+        props.getOrElse(o,o)
       }
       case None => o
     }
