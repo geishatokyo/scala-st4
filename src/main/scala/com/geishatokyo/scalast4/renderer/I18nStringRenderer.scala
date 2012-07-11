@@ -9,7 +9,7 @@ import java.util.{ResourceBundle, Locale}
  * Create: 12/04/05 16:56
  */
 
-class I18nStringRenderer(baseName : String,encoding : String = "shift-jis") extends AttributeRenderer[String] {
+class I18nStringRenderer(baseName : String,encoding : String = "utf-8") extends AttributeRenderer[String] {
 
   val resources = new I18nResource(encoding)
 
