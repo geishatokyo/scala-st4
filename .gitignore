@@ -1,4 +1,11 @@
-.idea
-project
-target
-*.iml
+## IntelliJ files
+/.idea
+/*.iml
+
+## vim files
+*.swo
+*.swp
+
+/project/project
+/project/target
+/target

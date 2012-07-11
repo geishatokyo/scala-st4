@@ -13,7 +13,7 @@ sbt
 
     resolvers += "takezoux2@github" at "http://takezoux2.github.com/maven"
 
-    libraryDependencies := "com.geishatokyo" %% "scala-st4" % "4.0.4-SNAPSHOT"
+    libraryDependencies := "com.geishatokyo" %% "scala-st4" % "4.0.4"
 
 # Sample code
 
