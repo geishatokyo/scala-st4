@@ -2,11 +2,11 @@ name := "scala-st4"
 
 organization := "com.geishatokyo"
 
-version := "4.0.5-SNAPSHOT"
+version := "4.0.5"
 
-scalaVersion := "2.9.1"
+scalaVersion := "2.10.0"
 
-crossScalaVersions := Seq("2.9.0","2.9.0-1","2.9.1","2.9.1-1","2.10.0")
+crossScalaVersions := Seq("2.9.1","2.9.1-1","2.10.0")
 
 resolvers += Resolver.mavenLocal
 
@@ -21,8 +21,8 @@ libraryDependencies ++= Seq(
 
 libraryDependencies <+= (scalaVersion) {sv => sv match{
   case "2.9.1" | "2.9.1-1" => "org.specs2" %% "specs2" % "1.8.2" % "test"
-  case "2.9.0" | "2.9.0-1" => "org.specs2" %% "specs2" % "1.7.1" % "test"
-  case "2.10.0" => "org.specs2" %% "specs2" % "1.11" % "test"
+  case "2.9.0" | "2.9.0-1" => "org.specs2" %% "specs2" % "1.12.4" % "test"
+  case "2.10.0" => "org.specs2" %% "specs2" % "1.14" % "test"
 }}
 
 publishMavenStyle := true
