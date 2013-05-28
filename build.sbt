@@ -12,7 +12,7 @@ resolvers += Resolver.mavenLocal
 
 publishMavenStyle := true
 
-publishTo := Some(Resolver.file("localMaven",Path.userHome / ".m2" / "repository"))
+//publishTo := Some(Resolver.file("localMaven",Path.userHome / ".m2" / "repository"))
 
 libraryDependencies ++= Seq(
   "org.antlr" % "ST4" % "4.0.4",
