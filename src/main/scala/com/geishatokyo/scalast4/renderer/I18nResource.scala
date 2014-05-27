@@ -121,6 +121,7 @@ class I18nResource(encoding : String){
         case Some(Ref(_)) =>
         case Some(NotFound()) => resources += (name -> Ref(prop))
         case None => resources += (name -> Ref(prop))
+        case _ => resources += (name -> Ref(prop))
       }
     })
   }

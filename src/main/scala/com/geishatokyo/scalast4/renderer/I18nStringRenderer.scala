@@ -19,7 +19,7 @@ class I18nStringRenderer(baseName : String,encoding : String = "utf-8") extends 
         val props = resources.getProps(baseName,locale)
         props.getOrElse(o,o)
       }
-      case None => o
+      case _ => o
     }
   }
 }
